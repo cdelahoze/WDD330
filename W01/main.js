@@ -10,12 +10,16 @@ But this new vision projects me toward new learning as the author puts it
 the reader, to learn more deeply by taking more responsibility for remembering things that 
 you have already learned and applying them in new situations (...)".<br>
 
-<br>As for the recommended chapter for this week, I learned what I wanted to have 
-and that is the ability for javascript to store in the 'localStorage' variable. 
-I couldn't complete all the code but I thought it was great to have this javascript attribute.<br>
+<br>The most relevant for me in the review of the Syllabus were the prerequisites, 
+because I several of the topics I mastered a bit, but there are others, such as fetch, 
+map, and filter that require more attention.<br>
 
-<br>In relation to the "Master Mobile UX" video, it was a great experience to learn how 
-currently web development must be more oriented to satisfy the needs of new hardware technology. 
-This takes into account that the desktop computer has been shrinking and the use of tablets 
-and mobile phones has increased.</p>`
-    
+<br>Regarding the use of VScode, GitHub, Teams, Node, and Slack, they are widely known to me. 
+I haven't used Trello so I'm looking forward to it.<br>
+
+<br>So far it has been a good experience working in a group at BYUI. At the beginning of each course,
+ it is a bit difficult to belong to a group, because there is uncertainty about who our partners 
+ will be, but once the group is formed it is very easy to communicate.<br>
+
+<br>Finally, the most complicated thing I see this week is what concerns Managing the Modern 
+Frontend Workflow. This topic was unknown to me and I did not understand much of what I read.<br>`
