@@ -25,3 +25,29 @@ body {
     margin-inline-start: 5em;
     margin-inline-end: 5em;
 }
+
+  lu {
+    display: block;
+    margin-block-start: 2em;
+    margin-block-end: 2em;
+    margin-inline-start: 5em;
+    margin-inline-end: 5em;
+  }
+
+  h3 {
+    display: block;
+    margin-block-start: 2em;
+    margin-block-end: 2em;
+    margin-inline-start: 5em;
+    margin-inline-end: 5em;
+  }
+
+  img {
+    display: block;
+    margin-block-start: 2em;
+    margin-block-end: 2em;
+    margin-inline-start: 5em;
+    margin-inline-end: 5em;
+  }
+
+ 
