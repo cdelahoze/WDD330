@@ -1,0 +1,27 @@
+[ 
+    {
+        "label": "Week 1 notes", 
+        "url": "W01/index.html"
+    },
+    {
+        "label": "Week 2", 
+        "url": "W02/index.html"
+    },
+    {   
+        "label": "Week 2 Weekly Report", 
+        "url": "W02/Teams/index.html"
+    },
+    {   
+        "label": "Week 3 notes", 
+        "url": "W03/index.html"
+    },
+    {   
+        "label": "Week 4 form", 
+        "url": "W04/index.html"
+    },
+    {   
+        "label": "Week 5 notes", 
+        "url": "W05/index.html"
+    }
+
+]

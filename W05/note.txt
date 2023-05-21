@@ -1,0 +1,97 @@
+<h2>Fetch</h2>
+
+<p>The fetch() method is modern and versatile</p>
+
+<p>In order to strengthen the learning of this method, in the current notes 
+page I used fetch in two ways:</p>
+
+<lu>
+<li>Create a text file which I call with fetch in a script that in turn manipulates the HTML.</li>
+<li>Create a JSON file with an array containing the note list information for each week.</li>
+</lu>
+
+<h2>Fetch: Cross-Origin Requests"</h2>
+
+
+<p>CORS exists to protect the internet from evil hackers. Cross-origin requests, those sent 
+to another domain (even a subdomain) or protocol or port, require special headers from the 
+remote side. Consequently, the parties agree to share the information. The most common way 
+to share information is through the JSON protocol. JSON (JavaScript Object Notation) is a 
+lightweight data interchange format. JSON is easy for users to read and write. 
+JSON is easy for machines to parse and generate.<br>
+<br>Las solicitudes "seguras" deben cumplir las siguientes condiciones:</p>
+
+<lu>
+<li>Método: GET, POST o HEAD.</li>
+<li>Encabezados: solo podemos establecer:</li>
+<lu>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Content-Type al valor , o .application/x-www-form-urlencodedmultipart/form-datatext/plain</li>
+</lu>
+</lu>
+
+<h2>Rest parameters and spread syntax</h2>
+
+<p>
+
+JavaScript uses three periods (...) for both the rest and spread operators. 
+But these two operators are not the same.
+<br><br>
+The main difference between rest and the spread operator is that the rest operator 
+puts the remainder of some specific user-supplied values into a JavaScript array. 
+But programming expands iterables into individual elements.
+
+</p>
+
+<h2>How Single-Page Applications Work</h2>
+
+<p>
+
+A single page application (SPA), also sometimes known as a single page interface (SPI), is a web 
+application or website that "snaps" onto an individual page and updates the page dynamically, 
+rather than loading a new page. The main advantage of SPAs is that they provide a more reactive 
+and fluid user experience. The SPA concept has been around for over 15 years, but only in the 
+last few years has it gained traction. Advances in technology and frameworks have made SPAs a 
+real possibility for developers and organizations.
+<br><br>
+A single-page application (SPA) is a website that re-renders its content in response to 
+navigation actions (e.g. clicking a link) without making a request to the server to 
+fetch new HTML.
+<br><br>
+Single-page applications control navigation so that we re-use the active instead of sending a request to a server
+<br><br>
+Routers are typically used to power route matching within a single-page application. 
+Route matching is done when the location changes, determines which route matches the 
+new location, and then triggers a re-render of the application.
+<br><br>
+In-app navigation is performed using the History API. The default click behavior for anchors 
+is overridden to use and to navigate. A event listener is used to detect navigation with 
+the browser’s forward/back buttons. The click handler and event listener should both inform 
+the router about the navigation to trigger the route matching cycle
+</p>
+
+<h2>The Problem with Single Page Apps</h2>
+
+<p>
+SPAs find problems with SEO.
+<br><br>
+SPAs load content on the page asynchronously, which means that the data is updated in the application 
+without refreshing the page. SEO crawlers don't like this because it depends on JavaScript. 
+With a SPA, once the page loads, the crawler's job is complete. The tracking agent does not 
+know that the data changes as a user navigates through the page and that data is eventually 
+rendered on the page.
+<br><br>
+SPAs cannot be run without JavaScript.
+Most pages have JavaScript turned on so it's not a problem, but if JavaScript is 
+turned off the page won't work.
+<br><br>
+SPAs tend to favor modern browsers.
+This can be a limitation if you are trying to use as many browser versions as possible 
+for your application. You may be in a position where you are not compatible.
+<br><br> 
+AMPs would be the best option here, and consequently have more existing frameworks 
+and best practices to draw from. As a new developer this makes it much easier to work 
+with MPA it's still important to monitor your API when developing MPA or SPA.
+</p>
