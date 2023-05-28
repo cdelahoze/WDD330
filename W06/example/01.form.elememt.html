@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <p>When we have a form, then any element is available in the named 
+    collection <span>form.elements</span>.</p>
+    <form name="my">
+        <label>name one<input name="one" value="1"></label>
+        <label>name two<input name="two" value="2"></label>
+    </form>
+  <p Id="console"></p>
+      
+  <script>
+    // get the form
+    let form = document.forms.my; // <form name="my"> element
+  
+    // get the element
+    let elem = form.elements.one; // <input name="one"> element
+
+    document.getElementById('console').innerHTML = `form.elements.one = ${elem.value}`; // 1
+  </script>
+</body>
+</html>

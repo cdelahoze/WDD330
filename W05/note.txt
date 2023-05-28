@@ -21,16 +21,16 @@ lightweight data interchange format. JSON is easy for users to read and write.
 JSON is easy for machines to parse and generate.<br>
 <br>Las solicitudes "seguras" deben cumplir las siguientes condiciones:</p>
 
-<lu>
+<ul>
 <li>Método: GET, POST o HEAD.</li>
 <li>Encabezados: solo podemos establecer:</li>
-<lu>
+<ul>
 <li>Accept</li>
 <li>Accept-Language</li>
 <li>Content-Language</li>
 <li>Content-Type al valor , o .application/x-www-form-urlencodedmultipart/form-datatext/plain</li>
-</lu>
-</lu>
+</ul>
+</ul>
 
 <h2>Rest parameters and spread syntax</h2>
 

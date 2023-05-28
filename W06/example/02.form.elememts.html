@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation: form and elements</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p>There may be multiple elements with the same name. This is typical with radio buttons and checkboxes.
+        <br>In that case, <span> form.elements[name]</span> is a collection.</p>
+    <form>
+       <label>First name:<input type="radio" name="age" value="10"></label>
+       <label>Second name<input type="radio" name="age" value="20"></label>
+    </form>
+    <p Id="console"></p>
+    <script>
+
+        let form = document.forms[0];
+        let ageElems = form.elements.age;
+
+        document.getElementById('console').innerHTML = `<span>form.elements.age </span> // ${ageElems[0]}`;
+
+    </script>
+</body>
+</html>

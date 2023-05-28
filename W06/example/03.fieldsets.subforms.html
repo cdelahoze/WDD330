@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fieldsets as “subforms”</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Fieldsets as “subforms”</h2>
+    <p>A form may have one or many <span>fieldset</span> elements inside it. They also have elements 
+      property that lists form controls inside them.</p>
+      <form id="form">
+          <fieldset name="userFields">
+            <legend>info</legend>
+            <label for="name">name<input name="login" type="text" id="name">
+          </fieldset>
+      </form>
+      <p Id="console"></p>
+ 
+      <script>
+
+        console.log(form.elements.login); // <input name="login">
+    
+        let fieldset = form.elements.userFields;
+        console.log(fieldset); // HTMLFieldSetElement
+    
+        // we can get the input by name both from the form and from the fieldset
+        console.log(fieldset.elements.login == form.elements.login); // true
+
+        document.getElementById('console').innerHTML = 
+        `<span>form.elements.[label.name] </span> ${form.elements.login} // input name="login" <br>
+        <span>form.elements.[fieldset.name] </span> ${fieldset} // HTMLFieldSetElement <br>
+        <span>fieldset.elements.login == form.elements.login </span> ${fieldset.elements.login == form.elements.login} // true`;
+      </script>
+</body>
+</html>

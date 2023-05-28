@@ -1,0 +1,135 @@
+<div>
+    <h2>Form properties and methods</h2>
+        <p>Forms and control elements, such as "input", "select", and others, have special properties and events that make them easy to work with. For example, we can access forms and their elements through the document. forms collection and the form.elements property. We can also use a shorter notation like form[name] to refer to an element by its name. Control elements also have a form property that references the form to which they belong. Additionally, we can use fieldset to group the elements of a form and access them via fieldset.elements. These properties allow us to manipulate forms and their elements in convenient ways with JavaScript.<br>
+        <br>It covers the following topics:</p>
+
+<ul>
+    <li><b>Navigation:</b> form and elements: how to use document.forms and form.elements to get references to forms and their elements by name or index. For example, document.forms.my refers to the form with name="my", and form.elements.login refers to the input element with name="login".</li>
+    <br>
+    <li><b>Fieldsets</b> as "subforms": how to use fieldset.elements to access elements inside a fieldset element. For example, form.elements.userFields refers to the fieldset element with name="userFields", and fieldset.elements.login refers to the input element with name="login" inside it.</li>
+    <br>
+    <li><b>Shorter notation:</b> form.name: how to use form[name] as a shorthand for form.elements[name], and the caveat of changing the name of an element. For example, form.login is equivalent to form.elements.login, but if we change the name of the input element to "username", then form.login will still work, while form.elements.login will be undefined.</li>
+    <br>
+    <li><b>Backreference:</b> element.form: how to use element.form to get the reference to the form that contains an element. For example, let login = form.login; alert(login.form); will show the form element that contains the input element with name="login".</li>
+    <br>
+    <li><b>Value:</b> how to get and set the value of various types of input elements, such as text, checkbox, radio, select, etc. For example, elem.value returns the current value of an input element, and elem.value = "new value" sets a new value for it.</li>
+</ul>
+    <a href="/W06/example/06.example.form.html">Examples of form</a>
+
+<h2>Forms: event and method submit</h2>
+    <p>Forms can be submitted in two ways: by clicking a submit or image button, or by pressing the Enter key in a text field. Both actions fire the submit event on the form, which can be used to validate the data before submitting it to the server, or to abort the submit and process it with JavaScript. The form.submit() method allows you to initiate the submission of the form from JavaScript, without raising the submit event. This can be used to dynamically create and submit forms to the server. The article also explains the relationship between the submit event and the click event, and how to create a modal form with a showPrompt(html, callback) function.</p>
+
+<ul>
+    <li>How to submit a form using JavaScript and handle the submit event
+        <ul>
+            <li>Two main ways: clicking on an input of type submit or image, or pressing Enter on an input field
+                <ul>
+                    <li>Both actions lead to submit event on the form</li>
+                    <li>The handler can check the data, and if there are errors, show them and call event.preventDefault(), then the form won't be sent to the server</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li>The submit event: triggers when the form is submitted, can be used to validate the form or abort the submission
+                <ul>
+                    <li>The event object has a property event.submitter that references the element that initiated the submit</li>
+                    <li>When a form is sent using Enter on an input field, a click event triggers on the <input type="submit"></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>The method form.submit()
+        <ul>
+            <li>Allows to initiate form sending from JavaScript, without generating the submit event
+                <ul>
+                    <li>It is assumed that if the programmer calls form.submit(), then the script already did all related processing</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>How to create and send a form dynamically using form.submit()
+        <ul>
+            <li>Create a "form" element with the desired attributes and inputs</li>
+            <li>Append it to the document and call form.submit()</li>
+            <li>Optionally remove it from the document afterwards</li>
+        </ul>
+    </li>
+    <li>- Tasks and solutions to practice working with forms and events
+        <ul>
+            <li>Modal form: create a function showPrompt(html, callback) that shows a form with the message html, an input field and buttons OK/CANCEL
+                <ul>
+                    <li>The form should be in the center of the window and modal</li>
+                    <li>The user should type something into the text field and press Enter or OK, then callback(value) is called with the value they entered</li>
+                    <li>If the user presses Esc or CANCEL, then callback(null) is called</li>
+                    <li>In both cases, the form is removed from the document</li>
+                </ul>
+            </li>
+            <li>A graphical interface for a calculator: create a calculator that can perform simple arithmetic operations
+                <ul>
+                    <li>The calculator should have buttons for digits, operations and a result field</li>
+                    <li>The user can click on the buttons or use keyboard to enter numbers and operations</li>
+                    <li>The calculator should evaluate expressions on the fly and show intermediate results in the result field</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+<h2>FormData</h2>
+
+<p>FormData objects are a way to send data from an HTML form to a server using the fetch method or another network method. You can also create FormData objects without an HTML form and manually add fields with the append, set, and delete methods.</p>
+
+<p>FormData objects have the advantage that they are automatically encoded as Content-Type: multipart/form-data, which is the format the server expects for receiving files. Thus, -- input type="file" -- fields can be sent along with other text fields or arbitrary values.</p>
+
+<p>To create a FormData object from an HTML form, simply pass the form element to the constructor:</p>
+
+<p><span>let formData = new FormData(form)</span>;</p>
+
+<p>To send the FormData object to the server, you can use the fetch method with the object as the body:</p>
+
+<p><span>fetch(url, {<br>
+   method: 'POST',<br>
+   body: formData<br>
+});</span></p>
+
+<p>The server will receive the form data as if it had been submitted normally, with the same field names and values.</p>
+
+<p>To create a FormData object without an HTML form, you can use the no-arg constructor and then add the fields with the append method:</p>
+
+<p><span>let formData = new FormData();<br>
+formData.append(name, value);<br>
+formData.append(name, blob, fileName);</span></p>
+
+<p>The append method adds a field with the given name and value. If the value is a Blob object, a filename can be specified as the third argument. This simulates the behavior of an -- input type="file" -- field.</p>
+
+<p>The set method does the same as append, but removes all fields with the same name before adding the new one. This ensures that there is only one field with that name.</p>
+
+<p>The delete method deletes all fields with the given name.</p>
+
+<p>The get method returns the value of the first field with the given name.</p>
+
+<p>The has method returns true if there is at least one field with the given name, false otherwise.</p>
+
+<p>You can also iterate over the fields of a FormData object with a for..of loop:</p>
+
+<p><span>for (let [name, value] of formData) {<br>
+   // do something with name and value<br>
+}</span></p>
+
+<p>In short, FormData objects are a useful tool for sending HTML form data or arbitrary data to the server using network methods like fetch. They allow you to send files and other types of data easily and automatically.</p>
+
+<h2>Client-side form validation</h2>
+
+<p>Form validation is an essential feature of web development that ensures the data submitted by users matches the requirements set by the application. </p>
+
+<p>Client-side form validation refers to validating form data in the browser before sending it to the server. This provides a better user experience, as users can fix their errors immediately, without waiting for a server response. However, client-side validation is not enough to ensure data security, as malicious users can easily bypass it and send bad data to the server. Therefore, server-side validation is also necessary.</p>
+
+<p>To perform client-side form validation, we need to use HTML attributes, CSS styles, and JavaScript code. HTML attributes can define the type, format, and constraints of the form data, such as required, pattern, min, max, etc. CSS styles can provide visual feedback to users, such as highlighting invalid fields or showing error messages. JavaScript code can add more functionality and interactivity to the form validation process, such as customizing error messages, creating custom validators, or preventing form submission.</p>
+
+<p>There are many types of form controls that can be used to collect different kinds of data from users, such as text inputs, checkboxes, radio buttons, select menus, file inputs, etc. Each type of form control has its own HTML syntax and attributes, and some of them have new features introduced by HTML5. For example, HTML5 provides new input types such as email, URL, number, date, color, etc., that have built-in validation rules and UI controls. HTML5 also provides the <output> element that can display the result of a calculation or user action.</p>
+
+<p>Other form controls that are not based on the <span>input</span> element include <span> textarea, select, button, fieldset, legend, and datalist</span>. These elements can be used to create more complex forms that require multiple lines of text input, dropdown menus, buttons, grouped controls, or autocomplete suggestions.</p>
+
+</div>
+

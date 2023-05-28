@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorter notation:</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p>There’s a shorter notation: we can access the element as <span> form[index/name] </span>. <br>
+
+      In other words, instead of form.elements.login we can write <span> form.login. </span> <br>
+      
+      That also works, but there’s a minor issue: if we access an element, and then change its 
+      name, then it is still available under the old name (as well as under the new one).</p>
+      <form id="form">
+        <label for="name">name</label><input name="login" id="name">
+      </form>
+      <p id="console"></p>
+  <script>
+    console.log(form.elements.login == form.login); // true, the same <input>
+  
+    form.login.name = "username"; // change the name of the input
+  
+    // form.elements updated the name:
+    console.log(form.elements.login); // undefined
+    console.log(form.elements.username); // input
+  
+    // form allows both names: the new one and the old one
+
+    document.getElementById('console').innerHTML = 
+      `<span>form.elements.login </span> ${form.elements.login} // undefined <br>
+      <span>form.elements.username </span> ${form.elements.username} // input`;
+  </script> 
+</body>
+</html>

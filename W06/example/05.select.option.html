@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select and option:</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p>A <span>select </span> element has 3 important properties: <br>
+
+        select.options – the collection of <span> option</span> subelements, <br>
+        select.value – the value of the currently selected <span> option</span>, <br>
+        select.selectedIndex – the number of the currently selected <span> option</span>.</p>
+      <select id="select" title="Fruit">
+        <option value="apple">Apple</option>
+        <option value="pear">Pear</option>
+        <option value="banana">Banana</option>
+      </select>
+      <p id="console"></p>
+      <select id="select2" multiple title="music">
+        <option value="blues" selected>Blues</option>
+        <option value="rock" selected>Rock</option>
+        <option value="classic">Classic</option>
+      </select>
+      <p id="console2"></p>
+      <script>
+        // all three lines do the same thing
+        select.options[2].selected = true;
+        select.selectedIndex = 2;
+        select.value = 'banana';
+        // please note: options start from zero, so index 2 means the 3rd option.
+
+        document.getElementById('console').innerHTML = 
+      `<span>select.options[2].selected </span> = ${select.options[2].selected}<br>
+      <span>select.selectedIndex = 2 </span> = ${select.selectedIndex = 2}<br>
+      <span>select.value = 'banana' </span> = ${select.value} // please note: 
+      options start from zero, so index 2 means the 3rd option.
+      `;
+        // get all selected values from multi-select
+        let selected = Array.from(select2.options)
+            .filter(option => option.selected)
+            .map(option => option.value);
+        document.getElementById('console2').innerHTML = 
+            `<span>let selected = Array.from(select.options) <br>
+                .filter(option => option.selected) <br>
+                .map(option => option.value)</span>  = ${selected}<br>
+            // get all selected values from multi-select`;
+
+      </script>
+</body>
+</html>
