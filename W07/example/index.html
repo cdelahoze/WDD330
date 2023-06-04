@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation example</title>
+</head>
+<body>
+  <div class="example">
+    <button id="color">Click me</button>
+    <div id="digit">
+        <div id="stripe">The best time of my life is now!
+        </div>
+    </div>
+  </div>
+<style>
+
+.example{
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 1.5em;
+  margin-inline-end: 1.5em;
+}
+
+#color {
+  transition-property: background-color;
+  transition-duration: 3s;
+  transition: font-size 3s, color 2s;
+  }
+
+#digit {
+  width: 10em;
+  overflow:hidden;
+  font: 28px monospace;
+  cursor:zoom-in;
+}
+
+#stripe {
+  display: inline-block;
+  padding-top: 25px;
+}
+
+#stripe.animate {
+  transform: translate(100%);
+  transition-property: transform;
+  transition-duration: 9s;
+  transition-timing-function:cubic-bezier(0.6, 0.0028, 0.735, 0.045);
+
+}
+</style>
+
+<script>
+
+    color.onclick = function() {
+    this.style.backgroundColor = 'yellow';
+    this.style.fontSize = '26px';
+    this.style.color = 'red';
+    let sec = new Date().getSeconds() % 10;
+    stripe.style.transitionDelay = '-' + sec + 's';
+    stripe.classList.add('animate');
+
+  };
+</script>
+</body>
+</html>

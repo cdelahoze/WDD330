@@ -1,0 +1,11 @@
+<div>
+    <h2>Object methods, "this"</h2>
+        <p>Methods are functions that are stored as object properties and can perform actions on the object's data. For example, the user.sayHi() method can display a greeting message using the user's name. The "this" keyword refers to the current object calling the method and can be used to access its properties. Objects are related to object-oriented programming, such as how to choose the correct entities and how to organize their interaction.</p>
+        <p>In this sense, "this" in JavaScript, is a keyword whose value changes depending on how a function is called. There are six different contexts where this can take on different values: global context, object construct, object method, plain function, arrow function, and the event listener.</p>
+    <h3 id="this"></h3>
+    <h2>CSS-animations</h2>
+        <p>CSS animations allow us to create simple animations without any JavaScript code. However, we can also use JavaScript to manipulate and enhance CSS animations with little code.</p>
+        <p>Within the basics of CSS transitions and animations, we find transition property, transition duration, transition time function, transition delay, @keyframes, animation name, animation duration, animation time function, animation delay, number of animation iterations, animation direction, animation fill mode, and animation playback state.</p>
+    <h3>Example CSS-animations</h3>
+    <iframe src="/W07/example/index.html" frameborder="0" title="example"></iframe>
+</div>

@@ -52,3 +52,11 @@ body {
   color: #06cc1d;
 
  }
+
+ 
+ iframe{
+  border: 1;
+  width: 70%;
+  height: 200px;;
+
+ }
