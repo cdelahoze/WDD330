@@ -14,7 +14,24 @@
     <br>
     <li><b>Value:</b> how to get and set the value of various types of input elements, such as text, checkbox, radio, select, etc. For example, elem.value returns the current value of an input element, and elem.value = "new value" sets a new value for it.</li>
 </ul>
-    <a href="/W06/example/06.example.form.html">Examples of form</a>
+        <div>
+        <h3>Examples of form properties and methods</h3>
+        <div>
+            <a href="/W06/example/01.form.elememt.html"  title="form01">form element</a>
+        </div>
+        <div>
+            <a href="/W06/example/02.form.elememts.html" title="form02">form elements</a>
+        </div>
+        <div>
+            <a href="/W06/example/03.fieldsets.subforms.html" title="form03">fieldset subform</a>
+        </div>
+        <div>
+            <a href="/W06/example/04.shorter.notation.html" title="form04">shorter notation</a>
+        </div>
+        <div>
+            <a href="/W06/example/05.select.option.html" title="form05">select option</a>
+        </div>
+    </div>
 
 <h2>Forms: event and method submit</h2>
     <p>Forms can be submitted in two ways: by clicking a submit or image button, or by pressing the Enter key in a text field. Both actions fire the submit event on the form, which can be used to validate the data before submitting it to the server, or to abort the submit and process it with JavaScript. The form.submit() method allows you to initiate the submission of the form from JavaScript, without raising the submit event. This can be used to dynamically create and submit forms to the server. The article also explains the relationship between the submit event and the click event, and how to create a modal form with a showPrompt(html, callback) function.</p>
