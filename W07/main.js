@@ -14,5 +14,14 @@ fetch('note.txt')
         }
       };
     user.myName(); // C
+    color.onclick = function() {
+      this.style.backgroundColor = 'yellow';
+      this.style.fontSize = '26px';
+      this.style.color = 'red';
+      let sec = new Date().getSeconds() % 1;
+      stripe.style.transitionDelay = '-' + sec + 's';
+      stripe.classList.add('animate');
+  
+    };
 })
     

@@ -7,5 +7,11 @@
         <p>CSS animations allow us to create simple animations without any JavaScript code. However, we can also use JavaScript to manipulate and enhance CSS animations with little code.</p>
         <p>Within the basics of CSS transitions and animations, we find transition property, transition duration, transition time function, transition delay, @keyframes, animation name, animation duration, animation time function, animation delay, number of animation iterations, animation direction, animation fill mode, and animation playback state.</p>
     <h3>Example CSS-animations</h3>
-    <iframe src="/W07/example/index.html" frameborder="0" title="example"></iframe>
+    <div class="example">
+        <button id="color">Click me</button>
+        <div id="digit">
+            <div id="stripe">The best time of my life is now!
+            </div>
+        </div>
+    </div>
 </div>

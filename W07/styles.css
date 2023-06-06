@@ -53,10 +53,36 @@ body {
 
  }
 
- 
- iframe{
-  border: 1;
-  width: 70%;
-  height: 200px;;
 
- }
+ .example{
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 1.5em;
+  margin-inline-end: 1.5em;
+}
+
+#color {
+  transition-property: background-color;
+  transition-duration: 3s;
+  transition: font-size 3s, color 2s;
+  }
+
+#digit {
+  width: 10em;
+  overflow:hidden;
+  font: 28px monospace;
+  cursor:zoom-in;
+}
+
+#stripe {
+  display: inline-block;
+  padding-top: 10px;
+}
+
+#stripe.animate {
+  transform: translate(100%);
+  transition-property: transform;
+  transition-duration: 9s;
+  transition-timing-function:cubic-bezier(0.6, 0.00028, 0.735, 0.045);
+
+}
