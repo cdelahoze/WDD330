@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" type="module"></script>
+    <script src="https://www.lactame.com/lib/ml/3.3.0/ml.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>WDD 330 portfolio</h1>
+    <h2>Week 09 Notes</h2>
+    <div id="note"></div>
+    
+    <h3>Chart Builder with Canvas</h3>
+
+    <div class="left">
+
+        <input type="text" placeholder="Título del Gráfico" id="titulo">
+        <div class="datos" id="datos">
+            <div class="dato">
+                <input type="text" placeholder="Leyenda 1" class="serie">
+                <input type="text" placeholder="Valor 1" class="valor">
+            </div>
+            <div class="dato">
+                <input type="text" placeholder="Leyenda 2" class="serie">
+                <input type="text" placeholder="Valor 2" class="valor">
+            </div>
+        </div>
+        <button onclick="agregarDato()" class="agregar"> + </button>
+        <button onclick="drawChart()" class="crear-grafico">Crear Gráfico</button>
+    </div>
+    <div class="right">
+        <div id="piechart"></div>
+        <canvas id="myCanvas" width="400" height="400" style="border:1px solid grey"></canvas>
+    </div>
+
+    
+</body>
+</html>

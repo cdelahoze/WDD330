@@ -1,0 +1,39 @@
+<div>
+    <h2>Variable Scope, Closure</h2>
+
+        <p>A closure is a concept in JavaScript that allows a function to access variables from its outer scope, even after the outer function has returned. A closure is formed when a function is defined inside another function, and the inner function can access the variables of the outer function. For example:</p>
+
+        <p>function makeCounter() {
+        <br>  let count = 0; // this variable is only visible inside makeCounter
+        <br>  return function() {
+        <br>    return count++; // the inner function can access and modify count
+        <br>  };
+        <br>}
+
+        <br>let counter = makeCounter(); // makeCounter returns a function
+
+        <br>alert( counter() ); // 0
+        <br>alert( counter() ); // 1
+        <br>alert( counter() ); // 2</p>
+
+
+        <p>The function counter is a closure that remembers the variable count from its creation place. Even though makeCounter has finished running, the counter function can still access the count and increment it. This is possible because JavaScript functions keep a reference to their lexical environment, which is the scope where they were defined.</p>
+
+        <p>Closures are very useful for creating private variables, partial applications, currying, and other functional programming techniques. They are also widely used in JavaScript libraries and frameworks. </p>
+
+    <h2>Currying</h2>
+
+        <p>Currying is a technique that transforms a function that takes multiple arguments into a function that takes one argument at a time. For example, a function f(a, b, c) can be curried into a function f(a)(b)(c). Currying does not call the function, it just changes its form. Currying can be useful for creating partial functions that fix some arguments and return a new function that takes the remaining arguments. For instance, a logging function log(date, importance, message) can be curried into log(date)(importance)(message) and then partially applied to create logNow(importance)(message) or debugNow(message) with a fixed date and importance arguments. Currying can be implemented using nested functions or using a helper function like _.curry from lodash library.</p>
+
+    <h2>Web APIs: Drawing Graphics</h2>
+
+        <p>We can draw graphics using the HTML canvas element and its associated APIs. The canvas element allows developers to create dynamic and interactive graphics on web pages, such as animations, games, charts, and maps. Covers the following topics:</p>
+        <ul>
+            <li>What is the canvas element and how to use it in HTML.</li>
+            <li>How to draw shapes, paths, text, images, and gradients on the canvas using the CanvasRenderingContext2D interface.</li>
+            <li>How to apply transformations, shadows, patterns, and clipping to the canvas graphics.</li>
+            how to use the requestAnimationFrame() method to create smooth animations on the canvas.</li>
+            <li>How to handle user input events on the canvas, such as mouse clicks and movements.</li>
+            <li>How to use the Canvas API with other web APIs, such as the Web Audio API and the Geolocation API.</li>
+        </ul>
+</div>
