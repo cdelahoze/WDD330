@@ -20,7 +20,7 @@ function agregarDato() {
     const inputLeyenda = document.createElement("input");
     inputLeyenda.type = "text";
     inputLeyenda.className = "serie";
-    inputLeyenda.placeholder = "Leyenda " + cantidadLeyendas;
+    inputLeyenda.placeholder = "x" + cantidadLeyendas;
     //Agrego el input al div datos
     dato.appendChild(inputLeyenda);
     document.getElementById("datos").appendChild(dato);
@@ -29,7 +29,7 @@ function agregarDato() {
     const inputValor = document.createElement("input");
     inputValor.type = "text";
     inputValor.className = "valor";
-    inputValor.placeholder = "Valor " + cantidadLeyendas;
+    inputValor.placeholder = "y" + cantidadLeyendas;
     //Agrego el input al div datos
     dato.appendChild(inputValor);
     document.getElementById("datos").appendChild(dato);
