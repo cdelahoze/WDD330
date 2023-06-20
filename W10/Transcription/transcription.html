@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription</title>
+</head>
+<body>
+    <p class="MsoNormal" style="background:#D9E2F3;mso-background-themecolor:accent1;
+mso-background-themetint:51"><span lang="EN-US" style="color:black;mso-color-alt:
+windowtext;mso-ansi-language:EN-US"><span style="color: black;">Welcome. In
+this video, we are going to. Lay out the foundations of how. We're going to see
+the execution context comprising memory and the threat of execution. We're
+going to see how those execution contexts are tracked by JavaScript. With the
+pool stack and we're going to do all of this to understand the foundations of
+the language that are. Going to let. The hard parts that follow much more
+naturally. This is a place to begin. Welcome to the video series. I'm glad to
+have you along. Alright, so here we go. Starting off to get ourselves. We're
+going to get the hard parts in a serious way. But to get ourselves there, we
+have to build out the foundations of fundamentals. The principles of
+JavaScript. This is how when we take a block of code, what we do when we run
+code. I remember the first time I saw running. Code. So what? Is it doing? It's
+taking words that have meaning in some application. In this case this
+application is the JavaScript engine that interprets those words. And uses as
+and instructions. Uses them as instructions to tell our computer, in this case,
+particularly our web browser, what to do. Well, how does that process work? Well,
+let's see. But no, these foundations are going to feel very, very pedantic,
+almost very overly specific. But they're going to. Allow us to understand all
+the hard parts to come. So here we go. What happens when jobs would execute, in
+other words, runs takes my code and starts doing it. What happens?</span></a></span><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;"><o:p></o:p></span></span></p><p class="MsoNormal" style="background:#D9E2F3;mso-background-themecolor:accent1;
+mso-background-themetint:51"><span lang="EN-US" style="color:black;mso-color-alt:
+windowtext;mso-ansi-language:EN-US"><span style="color: black;">It parses
+through line by line.</span></a></span><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;"><o:p></o:p></span></span></p><p class="MsoNormal" style="background:#D9E2F3;mso-background-themecolor:accent1;
+mso-background-themetint:51"><span lang="EN-US" style="color:black;mso-color-alt:
+windowtext;mso-ansi-language:EN-US"> <span style="color: black;">It passes
+through line by line. That means it it passes, that means it Internet says.
+What's this word mean? What's this word mean? It's doing it line by line,
+correct? And what are all the time? Is it telling? Our browse one time is it
+actually? Doing when it's taking a. Line what's it's doing, Skyler.</span></a></span><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;"><o:p></o:p></span></span></p><p class="MsoNormal" style="background:#FBE4D5;mso-background-themecolor:accent2;
+mso-background-themetint:51"><span lang="EN-US" style="color:black;mso-color-alt:
+windowtext;mso-ansi-language:EN-US"> <span style="color: black;">Storing,
+seeing that if you declare variables, see if you declare function.</span></a></span><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;"><o:p></o:p></span></span></p><p class="MsoNormal" style="background:#FBE4D5;mso-background-themecolor:accent2;
+mso-background-themetint:51"><span lang="EN-US" style="color:black;mso-color-alt:
+windowtext;mso-ansi-language:EN-US"> <span style="color: black;">OK, storing
+stuff in memory exactly 2 main things we do, and we run our code, we store
+stuff in memory and in order to encounter that stuff to be sort of memory,
+we're going to go through our code line by line, take it, and run it, execute
+it, and that taking the code. That is known as a threat of execution that. Is
+it’s a? Thread weaving its way through and. Executing the code line by line.
+And as I say. All the time it's hitting code that's saying save. Stuff to memory.
+So, we're going to map that out ourselves on. The whiteboard. Here we go. Line
+1 we're going to map it out. We're going to see exactly what it does and we're
+going to represent the thread of execution. That means going through the code
+line by line on this side here, and then we're going to store any of the
+variables or functions we declare on the right-hand side here. It's going to be
+our memory. And memory we're going to. Represent these all the whiteboard so we
+can. Really follow us exactly how ours. Code is executed and. There's nothing
+if we have that. There's nothing we can't interpreted then we can't understand
+if we are going through the. Way that our jobs should engine actually. Executes
+our code. There's something we can't understand. Right to line 1, Lewis. You
+have the honor. What are we? Doing our very first line of code, Lewis.</span></a></span><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;"><o:p></o:p></span></span></p><p class="MsoNormal" style="background:#FBE4D5;mso-background-themecolor:accent2;
+mso-background-themetint:51"><span lang="EN-US" style="color:black;mso-color-alt:
+windowtext;mso-ansi-language:EN-US"> <span style="color: black;">So, on the
+1st.</span></a></span><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;"><o:p></o:p></span></span></p><p class="MsoNormal" style="background:#FBE4D5;mso-background-themecolor:accent2;
+mso-background-themetint:51"><span lang="EN-US" style="color:black;mso-color-alt:
+windowtext;mso-ansi-language:EN-US"> <span style="color: black;">Line we are
+declaring a constant variable called NUM.</span></a></span><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;"><o:p></o:p></span></span></p><p class="MsoNormal" style="background:#FBE4D5;mso-background-themecolor:accent2;
+mso-background-themetint:51"><span lang="EN-US" style="color:black;mso-color-alt:
+windowtext;mso-ansi-language:EN-US"> <span style="color: black;">A concern
+called none and turning into. The value of three. Three excellent next line Z.</span></a></span><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;"><o:p></o:p></span></span></p><p class="MsoNormal" style="background:#FBE4D5;mso-background-themecolor:accent2;
+mso-background-themetint:51"><span lang="EN-US" style="color:black;mso-color-alt:
+windowtext;mso-ansi-language:EN-US"> <span style="color: black;">Next line as
+a function declaration and we're saving the function into memory and called
+multiplied by two. Perfect.</span></a></span><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;"><o:p></o:p></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">And I'm going to represent that. So,
+on the. Left hand side there's our label. When I declare a function, it's
+tempting to think it's a sort of JavaScript. Just sees that line and goes Hoh
+function good, but it doesn't. It's going to grab that label. Multiply by two.
+It's going to grab that. Label and it's going to. Use that as a label for all
+the functionalities. The whole function definition, the whole set of
+instructions from the keyword function right, and it's going to capture that
+and store it on the label. Multiply by two. Alright, next line, Skyler.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">So, we're going to declare a
+variable.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Name so that you go to the stream.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Called some name. So no, you did not.
+Go to the third line visually on the page. Why did you not go inside of the
+multiply? By two function, first Skyler.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Because we did not call the function.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Our thread of execution grabs NUM is
+3, grabs one by two is the following grabs. Name is, Will and. It never goes
+inside one by two unless we. Call multiplied by two. If we don't call it by
+two, we never go inside it, alright? So we go name is declared and stalled. Is
+will alright so. What is this thing we've done here? As soon as we start
+running our code, we create what is known as an execution context, a word we
+may hear many times. It is the most profound. Thing we do in jobs, what is it?
+Doing we've seen it. We've seen both things it. Does it's the. Process of going
+for power of going through our. Code line by. Line and doing whatever it says
+to do and the memory in which we store any variables or functions that get
+declared announced. Those two things together are known as an execution context
+A. Context means like a space, A space in which to execute our code, and in
+order to execute that. Code we need. The thread of execution that goes through.
+The code and takes it line by line and then a memory in which. To store that
+stuff. And those two together and as a context in which we execute our code, a
+space in which we edit. The and execution context. And we start, we start off
+as soon as we start writing code with a global one. That means it's going to
+take, we're going to see in a minute what's called a function level execution
+context. When we start running a function, we think we have our thread weaves
+inside and starts running the code inside that function line by line, and we
+create another memory just for the stuff inside that function, but for. Now
+we're in the. Global execution context. That means it's the stuff that we.
+Declare in memory when. We first start running our application. Is going to be
+available. Anywhere inside of our application. So we're gonna call this the
+global memory and this is our global execution context. And you can almost think
+of it like running like the whole application is a big function which we can
+sort of think of as being global, and we're running the whole application. So
+we went through it line by line. We didn't write it out. We just store this off
+in memory. But think of us going. Through and hitting the code line. By line in
+our thread. As soon as our code we create. A global execution context.
+Comprising a thread of execution going through our code line by line and a live
+memory of a stuff actually stored. Some people think when we call a function,
+we go back up the page to the function are when we encounter that function, we
+grabbed it and we stored it in memory. It's that place that we go and. Look for
+anything. That we then then later. On refer to. Posh name for the global memory
+is the. Global variable environment environment means that things around me so
+it's. A variables that are available around me in my code. The global variable
+environment alright above it. So the thread as I. Say this posh thing that the
+posh name for going through the code. And by line. We go through it in order
+from top to bottom of our page. I never skip a line. And I never suddenly
+grabbed this line down here and go back. Up to the we. Go in order line by
+line. That means it is synchronous. In order of encountering top to bottom.
+Down the page that is the. Order we follow and single threaded. One thing at a
+time. I am not starting to execute a function. And continuing to do that while
+simultaneously continuing down the rest of my. Code at the. Same time or if I
+say using a function, my thread is not continuing down the code down. The rest
+of the page I'm going to go inside of that function and start executing the
+code inside of. It it is. Single threaded, one line at a time, one thing at a time
+in order. Now we talk about the most important piece. Of or most important tool
+in. Our JavaScript kit, which is the function functions. Our way of. Wrapping
+up some instructions, some code to be done later on. And we give them a label.
+For now, we give them the code. We've written a label for now, which saves us
+having to write all that. Code out every. Time we want to. Run it so we just
+wrap it up, give it a label, and then we refer to it later on and say go run
+that functionality. OK, let's see that so. We have declared numbers 3 multiply
+by two as a. Function what is? Our next line of code to declare or to run
+Philip.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">We declare A variable named output.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Output excellent in we set it equal
+to the evaluated result of multiplied by two.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">So we declare. Output but we. We
+don't yet know what's gonna be stored in output, so you called it the evaluated
+result. You're basically saying this right hand side. In the cooling and
+multiply by two is. Going to go and do some work. And it's gonna get a result.
+That means it's gonna evaluate 2 results. We'll get some sort of output and
+that is then what's gonna be stored in output. Perfect. All right, very nice.
+By the way, how do I know that? How do I know that I haven't yet finished my
+work on the right hand side here? Tell me that on the right hand side here
+there's work to be done. The parentheses, the parentheses, they say. Go look
+for that function. Code multiply by two. Yeah, you know, look. Go look for
+multiply by two. We'll be passing in Philip.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">The number four, but the parameter
+is.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Well, the number 4. And this the
+return output. The return value of this function call is going. To be stored in
+output perfect. Now we know that this right hand side has not finished doing
+its work yet, because we can't still multiply by two parents 4IN output or
+store here. We gonna go and do the work. Of running this function, whatever
+gets. Returned out whatever. The output is. We're going to store in in output.
+When we call a function. It's going to do a bunch of work inside of it, and
+whatever gets returned out, it's going to almost fully replace this function
+invocation. This function calling and then. That's when you saw an output. So
+for now we don't let know what to put. An output but. JavaScript never leaves
+anything. There's never a label. Without a value. There's always some value on
+the right hand side. Never moves on without putting some value. What value does
+it default to? You know undefined, not null some phone. My thing is not, it
+defaults to undefined. We don't yet know what to store an output yet, so just
+leave it undefined and now go and start running the code. Inside this function,
+and by the way. Anything we saw, anything we? Declare inside this function,
+putting a little memory just for that function, not global memory. But a little
+memory. Just for that function. It sounds a lot like. We've got to spin up an
+execution context just like we did for our overall code. Now for the function
+code, the code inside that function multiplied by two. We're going to do. What
+is called? A function level or. That's called local local because. Who knows
+local? Not big like global local execution context.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">There it is.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">And just like. We had for our overall
+execution of our. Code a global memory where everything was. Stored and we were
+going through the. Code line by line. We hit, we hit. Continuum equals three.
+We hit multiply by. Two, as the click and then we hit output. Well, we don't
+get to. Continue with our thread for now. Our thread is gonna weave its way in
+and start running the. Code inside multiply. By two now that weaving the thread
+and that local memory together are known as an execution context, a space in
+which to run our code of multiply by two so. What is the first? Thing that
+we're going to do. Inside that module by two functions, Skyler.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">You're going to declare a variable
+result.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">That's the second. Thing we're gonna.
+Do definitely was the first thing we're gonna do.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">It's gotta you're gonna actually set
+input number.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">24 input number to four so input number
+is our what Lewis. That's your. That's to say that when I define multiply by
+two, I said you want to be able. To use me multiple times. And you want to use
+my multiply my by by two functionality multiple times, but you don't yet know
+what number you want to multiply by two, so leave a placeholder input number
+and then when you run me when you execute me when you invoke me. They're the
+same thing when you do that with parens. Only way to. Well, we're gonna see
+today to run. Make sure you fill that input number placeholder parameter blank
+in with an actual value, which is what Lewis which is our.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Our our argument.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">And you're in.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">When we call the function. We have an
+argument that's our actual value that we. Stick in when we run the function
+perfect. Scarlet will get assigned a result. We declare a result we. Assigned
+to it. You know the result.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Of running two.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Perfect, which is 8. Skylar, keep me
+going.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">So then you're.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Going to return.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">That result very well.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Let's say the value of result. So
+when JavaScript sees return result it goes what is result ohh. It's eight and
+returns that value. Out into what, Skyler? Into the global ohh into what global
+variable? Perfect return 8 into output and our thread now weaves its way back.
+Out to global? And how do? We know to exit multiplied by two. What keyword
+tells it exit? For the return return, this is what? Ends the running multiple
+by two function returns us back out to the global execution context our thread
+was was going through and now it's back out where it encounters what life.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Declaring a new variable called new.
+Output new output.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Which would have the return. Value of
+the quarter multiply by two. The input of 1010 and that would spin up another
+execution context. We're not gonna go into it. For now new output will default
+to undefined until it gets the return value until it gets the return value.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Of of our.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Call to multiply by two. What we can see?
+Here, though, whatever that would return would return it out into new output.
+What we can see here, though, is that there's. There's a a layer of complexity
+in these execution contexts, contexts, contexts, and execution contexts. So
+many hard consonants in decision contexts. There's a level of complexity here.
+There is that we can visually see the sky. Who said I've finished running?
+Multiply by two. I return eight out into the global execution context and. The
+global variable output. Now, Sky didn't see that because you can see you
+multiply by two. Is to the right hand side of the output constant. He he can
+visually see when I finish inside multiplied by two execution context returned
+to the execution context in which I was previously. But JavaScript doesn't have
+that sort of visual sense of of how these boxes are working. Well, it has to
+track which execution context I'm in at any one time. Am I inside will provide
+2 the call to the GOLDFIRE 2 function am inside. The calls this. This next call
+to mode two function. And it's either. Global sort of. Call the the global
+execution context. If I were to run another function inside. Of mode one. Or
+two where? Where would that be? You have to keep track of where it is and where
+to go back to when it finishes where it is. So if I'm inside the Cordoba 2.
+Multiplied by two when I'm finished because I. Called model 2IN global, I want
+to be able to. Know to go back to global and JavaScript has a special sort of
+data store to track that journey where it is, where it was and therefore. It's
+going to go back to. And that structure? Anyone know what's known as see just
+stack call stack a stack of calls to functions when when we call a function we
+create an execution context. So it's a stack of a call so. Functions, we call
+it call. Here is a cool stack of it. And it is. A great way of representing it.
+It's a great way of representing our functions being called inside of each
+other. I start off in global. So stack is something from our world. Of
+programming from computer science, and it's just like an array. An array says I
+want to store data at a list where I care about the order of the data, and I
+also want to go grab a piece of data at position 7. And position 2. A stack is
+perfect for tracking our execution context because stacks I only care about
+adding something on top of it, like a stack of plates adding on top of it. I
+can't take a random plate out. I only care about anything on top of it, and
+then when removing that plate, the next plate down is still there. It's all I.
+Same thing here. I only care about. Adding something multiplied by two inside
+of global and then when I finish 20 multiply 2 need to go back out more by two.
+Go back out to global. It's a really great way of representing our calls to
+functions and the first, the first one we. Add therefore to our. Of calls is a
+global execution context and we never leave that one as long as our application
+is running, it's always. There on the. Bottom when I. Start executing multiply
+by two. I add it on top multiply. By two in vote with four. That is for when I
+am inside. So while I was inside of this multiplied by two function so it was
+on top of. My call stack. And when I step out of it, what do we think happens
+when? I multiply 2 phones on the call.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">It looks off.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">Ah, I remove the call and the posh
+name. For removing from the call stack is. To pop it off. To pop the call to,
+multiply by two off the positive. Adding it is to push, push it on, pop it off
+alright and if I were to run more by. Two again with 10. That would be added on
+the call stack.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"> <span lang="EN-US" style="color: windowtext;">Again, and if.</span></a><span lang="EN-US"><o:p></o:p></span></p><p class="MsoNormal"><span lang="EN-US"> <span style="color: windowtext;">I then call another function inside
+of. Here that would be then. One layer above. To my call stack. Alright, so my
+call stack is my final piece of the core fundamentals of how our JavaScript
+code executes. When you execute a function, you create a new execution context
+which all that is all execution context is nothing. Has a profound but. All it
+is is our thread of execution, meaning we take the code and multiply by two and
+we start going through it line by line by line, storing stuff in memory as we.
+As I say, a local memory, by the way, sometimes known as a variable environment
+in which everything inside that function anything gets defined, is stored
+inside that function's local memory. All right, and that execution context, we
+keep track of those. With our whole stack. Our call to the function is tracked.
+Our call to the function is tracked on our. Stack of calls. And this people. Is
+all of. Are fundamental building blocks of JavaScript execution. This is it,
+we. See it all. OK. As I say, we keep track of our calls in the call. Stack
+folks, we now have the underlying principles. We can see straight away, I know
+that calling multiply by two with the number four returns to output 8. It needs
+to do it for. One second, but. When I have these. Foundational pieces built out
+with clarity and completeness. All the hard parts follow more naturally. So
+this was. Our hard parts preamble. Now we move on to hard part part one for
+real callbacks and higher order functions.</span></a><span class="MsoHyperlink"><span style="color: windowtext;"><o:p></o:p></span></span></span></p><p class="MsoNormal"><span class="MsoHyperlink"><span lang="EN-US" style="color: windowtext;">&nbsp;</span></span></p><p>
+
+</body>
+</html>
